@@ -73,6 +73,14 @@ node index.js
   em ơi || @Nam Hoàng || hú nam : Ping bot
   
   sleep : thông báo giờ nên thức dậy để không mệt
+   
+  ${prefix}turnoff : tắt bot
+
+  ${prefix}khen <@ten> :khen người được tag
+
+  ${prefix}chui <@ten> :chửi người được tag
+
+  ${prefix}hpbd <@ten> :chúc mừng sinh nhật người được tag
   
   ${prefix}turnoff : chửi đứa nào đòi tắt bot
 

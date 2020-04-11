@@ -70,7 +70,11 @@ node index.js
   
   prefix : Kiểm tra prefix (default là !)
 
-  em ơi || @Kẹo Sữa : Ping bot
+  em ơi || @Nam Hoàng || hú nam : Ping bot
+  
+  sleep : thông báo giờ nên thức dậy để không mệt
+  
+  ${prefix}turnoff : chửi đứa nào đòi tắt bot
 
   ${prefix}lenny : ( ͡° ͜ʖ ͡°)
  
@@ -126,9 +130,9 @@ node index.js
  
   \\\\\ các lệnh ngoài lề phục vụ cho AI bot \\\\\\ 
 
-  sumi ngu, buồi, vv : bot sẽ dizz bạn không thương tiếc
+  nam ngu, buồi, vv : bot sẽ dizz bạn không thương tiếc
 
-  sumi khôn : bot sẽ cám ơn bạn thay lời cám ơn của mình :3
+  nam khôn : bot sẽ cám ơn bạn thay lời cám ơn của mình :3
  
   chửi thề : sẽ bị bot nhắc chỉnh sửa lại cái nết của bạn "/
   

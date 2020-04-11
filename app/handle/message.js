@@ -1,6 +1,7 @@
 const fs = require("fs");
 const createCard = require("../controllers/rank_card");
 var osu = require("node-osu");
+var specialday= [];
 var checkthreadid = [];
 var sleeptime = [];
 var wakelist = [];
@@ -228,9 +229,15 @@ module.exports = function ({
     }
 
     /* ==================== CRON JOB =============== */
-
+    
+    var d = new Date();
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+    var nd = new Date(utc + (3600000 * 7));
+    var h = nd.getHours();
+    var ngay=nd.getDate();
+    var thang=nd.getMonth();
     //nhắc đi ngủ trong thời gian từ 11h00PM đến 6h00AM
-    if (utc >= 23 && utc <= 6 && !checkthreadid.hasOwnProperty(threadID)) {
+    if (h >= 23 && h <= 6 && !checkthreadid.hasOwnProperty(threadID)) {
       api.sendMessage(
         `Trễ rồi đấy nii-chan, mau tắt thiết bị rồi đi ngủ đi. おやすみなさい！ `,
         threadID,
@@ -243,7 +250,7 @@ module.exports = function ({
     }
 
     //nhắc đi ngủ trong thời gian 10h00PM tới 11h00PM
-    if (utc >= 22 && utc <= 23 && !sleeptime.hasOwnProperty(threadID)) {
+    if (h >= 22 && h <= 23 && !sleeptime.hasOwnProperty(threadID)) {
       api.sendMessage(
         `Tới giờ ngủ rồi đấy nii-chan, おやすみなさい!  `,
         threadID,
@@ -255,7 +262,7 @@ module.exports = function ({
       return;
     }
 
-    if (utc >= 6 && utc <= 9 && !wakelist.hasOwnProperty(threadID)) {
+    if (h >= 6 && h <= 9 && !wakelist.hasOwnProperty(threadID)) {
       api.sendMessage(
         ` おはようございま các nii-chan uwu `,
         threadID,
@@ -309,10 +316,10 @@ module.exports = function ({
     if (contentMessage == `sleep`) {
       var thoigian = ""
       var d = new Date()
-      h = d.getHours()
-      m = d.getMinutes()
+      var h = d.getHours()
+      var m = d.getMinutes()
       var x = 1
-      y = 30
+      var y = 30
 
       for (var i = 1; i < 7; i++) {
         var h1 = 0, m1 = 0
@@ -353,10 +360,195 @@ module.exports = function ({
       return api.sendMessage("Bây giờ là " + h + ":" + m + "\n \nBạn nên thức dậy vào các khung giờ " + thoigian + " \n\n (Thức dậy giữa một chu kỳ giấc ngủ khiến bạn cảm thấy mệt mỏi, nhưng khi thức dậy vào giữa chu kỳ tỉnh giấc sẽ làm bạn cảm thấy tỉnh táo và minh mẫn.) \n \n Chúc ngủ ngon! 😴", threadID);
 
     }
+    
+    //chúc mừng sn
+    if (contentMessage.indexOf(`${prefix}hpbd`) == 0) {
+      for (var i = 0; i < Object.keys(event.mentions).length; i++) {
+        var x = contentMessage
+          .slice(prefix.length + 5, contentMessage.length)
+          .trim();
+
+        api.sendMessage(
+          {
+            body:
+              "Chúc " +
+              x +
+              " sinh nhật vui vẻ, mạnh khoẻ và may mắn 🤩🎉🎊, mau cua đổ Crush  <3 ",
+            mentions: [
+              {
+                tag: x,
+                id: Object.keys(event.mentions)[i]
+              }
+            ]
+          },
+          threadID
+        );
+      }
+    }
+    //khen 
+    if (contentMessage.indexOf(`${prefix}khen`) == 0) {
+      for (var i = 0; i < Object.keys(event.mentions).length; i++) {
+        var x = contentMessage
+          .slice(prefix.length + 5, contentMessage.length)
+          .trim();
+
+        api.sendMessage(
+          {
+            body:
+              "Bạn " +
+              x +
+              " saoo nay cutee quá dọo 😍😍 <3 ",
+            mentions: [
+              {
+                tag: x,
+                id: Object.keys(event.mentions)[i]
+              }
+            ]
+          },
+          threadID
+        );
+      }
+    }
+    //chửi
+    if (contentMessage.indexOf(`${prefix}chui`) == 0) {
+      for (var i = 0; i < Object.keys(event.mentions).length; i++) {
+        var route = Math.round(Math.random() * 10);
+        var x = contentMessage
+          .slice(prefix.length + 5, contentMessage.length)
+          .trim();
+        if (x == "@Nam Hoàng") {
+          if (route > 6) {
+            api.sendMessage(
+              {
+                body:
+                  "Anh " + x + " thông minh đẹp chai nhất chần đời hihi 😍🥰",
+                mentions: [
+                  {
+                    tag: x,
+                    id: Object.keys(event.mentions)[i]
+                  }
+                ]
+              },
+              threadID
+            );
+          } else {
+            api.sendMessage(
+              {
+                body: "Anh " + x + " cutee thế mà sao nỡ chửi hihi iu anh 😍🥰",
+                mentions: [
+                  {
+                    tag: x,
+                    id: Object.keys(event.mentions)[i]
+                  }
+                ]
+              },
+              threadID
+            );
+          }
+        } else {
+          if (route > 5) {
+            api.sendMessage(
+              {
+                body: "tml " + x + " óc chó ngu si tứ chi phát triển :v",
+                mentions: [
+                  {
+                    tag: x,
+                    id: Object.keys(event.mentions)[i]
+                  }
+                ]
+              },
+              threadID
+            );
+          } else {
+            api.sendMessage(
+              {
+                body:
+                  x +
+                  " không phải người rồi, hông thể nào nó ngu một cách thần kỳ như thế được! ",
+                mentions: [
+                  {
+                    tag: x,
+                    id: Object.keys(event.mentions)[i]
+                  }
+                ]
+              },
+              threadID
+            );
+          }
+        }
+      }
+    }
+    
+    //ngày 8/3
+    if(ngay==8 && thang==2 && h>=6 && h<=8 &&!specialday.hasOwnProperty(threadID)){
+      api.sendMessage('Tất cả những lời chúc tốt đẹp nhất vào ngày Quốc tế Phụ nữ. Hãy luôn tỏa sáng và mỉm cười nha mấy bạn nữ <3 <3',threadID,
+                     function() {
+          console.log("nhắc ngày 8/3 thread: " + threadID);
+          specialday[threadID] = true;
+        }
+      );
+      return;
+    }
+    //ngày của mẹ
+    if(ngay==13 && thang==4 && h>=6 && h<=8 &&!specialday.hasOwnProperty(threadID)){
+      api.sendMessage('Hôm nay là ngày của mẹ, các bạn đừng quên chúc mẹ có một ngày thật tuyệt vời nhé!',threadID,
+                     function() {
+          console.log("nhắc ngày 13/5 thread: " + threadID);
+          specialday[threadID] = true;
+        }
+      );
+      return;
+    }
+    //ngày của cha
+    if(ngay==17 && thang==5 && h>=6 && h<=8 &&!specialday.hasOwnProperty(threadID)){
+      api.sendMessage('Hôm nay là ngày của cha, các bạn đừng quên chúc cha có một ngày thật tuyệt vời nhé!',threadID,
+                     function() {
+          console.log("nhắc ngày 17/6 thread: " + threadID);
+          specialday[threadID] = true;
+        }
+      );
+      return;
+    }
+    //ngày của bạn nam
+    if(ngay==6 && thang==3 && h>=6 && h<=8 &&!specialday.hasOwnProperty(threadID)){
+      api.sendMessage('Hôm nay là ngày của các cậu,chúc mấy cậu thành công trong cuộc sống, vui vẻ và là chỗ dựa vững chắc cho gia đình nhỏ và gia đình lớn sau này\n\n các bạn nữ đừng quên chúc các cậu có một ngày thật tuyệt vời nhé!',threadID,
+                     function() {
+          console.log("nhắc ngày 6/4 thread: " + threadID);
+          specialday[threadID] = true;
+        }
+      );
+      return;
+    }
+    //halowwen
+    if(ngay==31 && thang==9 && h>=6 && h<=8 &&!specialday.hasOwnProperty(threadID)){
+      api.sendMessage('Hôm nay là Halloween,chúc các bạn có một ngày thật tuyệt vời nhé!',threadID,
+                     function() {
+          console.log("nhắc ngày 31/10 thread: " + threadID);
+          specialday[threadID] = true;
+        }
+      );
+      return;
+    }
+    //giáng sinh
+    if(ngay==24 && thang==11 &&h>=6 && h<=8 &&!specialday.hasOwnProperty(threadID)){
+      api.sendMessage('Hôm nay là giáng sinh,chúc các bạn có một ngày thật tuyệt vời nhé!',threadID,
+                     function() {
+          console.log("nhắc ngày 24/12 thread: " + threadID);
+          specialday[threadID] = true;
+        }
+      );
+      return;
+    }
 
     //hug
     if (contentMessage == `${prefix}hug`)
       return api.sendMessage(" (つ ͡° ͜ʖ ͡°)つ  ", threadID);
+    
+    //turnoff
+    if (contentMessage == `${prefix}turnoff`) {
+      api.sendMessage("off cmm, tính giết t hả đcm 🤬🤬 lozz ", threadID);
+      return;
+    }
 
     //mlem
     if (contentMessage == `${prefix}mlem`)
@@ -552,6 +744,7 @@ module.exports = function ({
       );
       return;
     }
+    
 
     //detect chửi bot
     if (
@@ -763,8 +956,14 @@ module.exports = function ({
 \n  
   ${prefix}turnoff : tắt bot
 \n
-  sleep : thông báo nên dậy khi nào \n
+  ${prefix}khen <@ten> :khen người được tag
 \n  
+\n
+  ${prefix}chui <@ten> :chửi người được tag
+\n 
+\n
+  ${prefix}hpbd <@ten> :chúc mừng sinh nhật người được tag
+\n 
   ${prefix}lenny : ( ͡° ͜ʖ ͡°)\n
 \n  
   ${prefix}hug : (つ ͡° ͜ʖ ͡°)つ\n

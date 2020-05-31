@@ -1,12 +1,12 @@
 const path = require("path")
 module.exports = {
-      development: false,
+    development: false,
     prefix: process.env.PREFIX || '!',
     botName: process.env.BOT_NAME || 'Nam-Chan',
     developer: {
-        uid: 100027477920916,
-        email: 'rfechinonguyen@gmail.com',
-        github: 'Roxtigger2003'
+        uid: 100006948469184,
+        email: 'efert269@gmail.com',
+        github: 'gadola'
     },
     database: {
         postgres: {
@@ -23,5 +23,5 @@ module.exports = {
     swear: {
         limit: 2
     },
-    admins: (process.env.ADMINS || '100026676212338_100027477920916').split('_').map(e => parseInt(e))
+    admins: (process.env.ADMINS || '100006948469184').split('_').map(e => parseInt(e))
 }

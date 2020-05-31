@@ -15,7 +15,7 @@ còn một số lỗi vãn chưa fix được momg các bạn đợi version k�
 
 •Step 1: bạn phải clone hoặc download Sumi-chan này về, nếu máy bạn có git hãy sử dụng lệnh:
 ```
-git clone https://github.com/roxtigger2003/Sumi-chan-bot
+git clone https://github.com/gadola/botchat.git
 ```
 hoặc ở trên góc phải có nút xanh ghi là clone or download bạn nhấn vào chọn download zip là nó tự download file zip về và unzip ra nha :3
 
@@ -83,6 +83,8 @@ node index.js
   ${prefix}hpbd <@ten> :chúc mừng sinh nhật người được tag
   
   ${prefix}turnoff : chửi đứa nào đòi tắt bot
+
+  ${prefix}local: tìm vị trí hiện tại 
 
   ${prefix}lenny : ( ͡° ͜ʖ ͡°)
  

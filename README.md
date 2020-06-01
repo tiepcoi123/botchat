@@ -1,6 +1,6 @@
-# Sumi-chan-bot
+# Nam-chan-bot
 
-**Bot Sumi-chan Version 2.0.3**
+**Bot Nam-chan Version 2.0.3**
 
 *có gì mới?
 

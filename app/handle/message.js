@@ -997,7 +997,7 @@ module.exports = function({
 \n
   contact me at: https://www.facebook.com/messages/t/CoktailDail\n
 \n
-  Sumi-chan Source code open at: https://github.com/roxtigger2003/Sumi-chan-bot\n
+  Sumi-chan Source code open at: https://github.com/gadola/botchat\n
 \n
   \\\\\ Cám ơn vì đã tin tưởng bot của tớ <3 | nếu có lỗi gì xin vui lòng báo cáo ở link contact trên của mình nha <3 \\\\\ \n
 \n

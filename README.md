@@ -124,7 +124,7 @@ node index.js
 
   ${prefix}jav : lấy code may mắn của bạn
  
-  \\\\\ Admin Commands: call admin at https://fb.me/Cataliz2k \\\\\\ 
+  \\\\\ Admin Commands: call admin at https://www.facebook.com/messages/t/CoktailDail \\\\\\ 
 
   ${prefix}ban <@ người bạn muốn ban> : khiến cho người dùng đấy không thể sử dụng bot
  
@@ -149,7 +149,7 @@ node index.js
   giờ đi ngủ : bot sẽ nhắc bạn đi ngủ từ 22:00 đến 6:00
 
 **Credits**
-- Contact me at: https://fb.me/Cataliz2k
+- Contact me at: https://www.facebook.com/messages/t/CoktailDail
 
 Cám ơn vì đã tin tưởng bot của tớ <3 | nếu có lỗi gì xin vui lòng báo cáo ở link contact trên của mình nha <3
  

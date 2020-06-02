@@ -2,11 +2,11 @@ const path = require("path")
 module.exports = {
     development: false,
     prefix: process.env.PREFIX || '!',
-    botName: process.env.BOT_NAME || 'Nam-Chan',
+    botName: process.env.BOT_NAME || 'Kiều đẹp zai',
     developer: {
         uid: 100006948469184,
-        email: 'efert269@gmail.com',
-        github: 'gadola'
+        email: 'tiecoi321@gmail.com',
+        github: 'tiepcoi'
     },
     database: {
         postgres: {
